@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인 창 만들기</title>
+
+    <!-- 스타일 정의 -->
+    <style>
+        /* 기본 리셋 스타일 */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 컨테이너 스타일 */
+        .container {
+            display: grid;
+            grid-template-rows: auto 1fr;
+            grid-template-columns: 1fr 3fr;
+            gap: 20px;
+            width: 90%;
+            max-width: 1100px;
+            margin: 100px auto;
+            border: 1px solid black;
+            align-items: center;
+            height: 500px;
+            background-color: white;
+        }
+
+        /* 반응형: 화면 크기 768px 이하일 때의 스타일 */
+        @media screen and (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .area1 {
+                grid-column: 1;
+            }
+        }
+
+        /* 로그인 영역 스타일 */
+        .area1 {
+            grid-column: 1 / span 2;
+            text-align: center;
+            padding: 10px;
+            background-color: ghostwhite;
+        }
+
+        /* 버튼 영역 스타일 */
+        .area2 {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .area2 button {
+            width: 200px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        /* 내용 표시 영역 스타일 */
+        .area3 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 200px;
+            padding: 10px;
+            border: 1px solid black;
+            background-color: white;
+            margin-right: 50px;
+        }
+
+        /* 프로필 사진 스타일 */
+        .profile-pic {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 메인 컨테이너 -->
+    <div class="container">
+        <!-- 로그인 영역 -->
+        <div class="area1">
+            <input type="text" id="userId" placeholder="ID">
+            <input type="password" id="userPassword" placeholder="비밀번호">
+            <button id="loginButton" onclick="login()">로그인</button>
+            <div class="profile" style="display:none;">
+                <img src="" alt="프로필 사진" class="profile-pic">
+                <div class="nickname"></div>
+                <button onclick="logout()">로그아웃</button>
+            </div>
+        </div>
+
+        <!-- 버튼 영역 -->
+        <div class="area2">
+            <button onclick="showContent(1)">버튼1</button>
+            <button onclick="showContent(2)">버튼2</button>
+            <button onclick="showContent(3)">버튼3</button>
+        </div>
+
+        <!-- 내용 표시 영역 -->
+        <div class="area3">
+            버튼을 클릭하십시오.
+        </div>
+    </div>
+
+    <!-- 자바스크립트 영역 -->
+    <script>
+        /* 전역 변수 정의 */
+        let lastButtonClicked;
+        let swapBuffer = null;
+
+        /* 버튼 내용 초기화 */
+        let buttonContents = {
+            1: '안녕하세요 202227073학번 이성우입니다.',
+            2: '이은석교수님은 정말 착한사탄이신거 같아요 ㅎㅎ',
+            3: ''
+        };
+
+        let isLoggedIn= false; //로그인 상태를 추척하는 변수
+
+         /* 버튼 클릭 이벤트 함수 */
+        function showContent(buttonNumber) {
+            if(!isLoggedIn){
+                alert("로그인 후 이용해 주세요.");
+                return;
+            }
+            const area3 = document.querySelector('.area3');
+
+            if (!buttonContents[buttonNumber]) {
+                if (lastButtonClicked && !swapBuffer) {
+                    swapBuffer = buttonContents[lastButtonClicked];
+                    buttonContents[lastButtonClicked] = buttonContents[buttonNumber];
+                    buttonContents[buttonNumber] = swapBuffer;
+                    area3.innerText = '복사하였습니다.';
+                } else {
+                    alert('내용이 없습니다.');
+                    area3.innerText = '다른 버튼을 누르시오.';
+                }
+            } else {
+                area3.innerText = buttonContents[buttonNumber];
+                swapBuffer = null;
+            }
+            
+            lastButtonClicked = buttonNumber;
+        }
+
+        /* 로그인 이벤트 함수 */
+        function login() {
+            const userIdElement = document.getElementById('userId');
+            const userPasswordElement = document.getElementById('userPassword');
+
+            const userId = userIdElement.value.trim();
+            const userPassword = userPasswordElement.value.trim();
+
+            if (!userId || !userPassword) {
+                alert("ID/비밀번호를 입력하시오.");
+                return;
+            }
+
+            userIdElement.style.display='none'; //로그인 했을때 숨김
+            userPasswordElement.style.display='none'; // 로그인 했을때 숨김
+            loginButton.style.display = 'none';// 로그인 했을때버튼 숨김
+
+            document.querySelector('.profile').style.display = 'block';
+            document.querySelector('.profile-pic').src = 'Leesungwoo.png';
+            document.querySelector('.nickname').innerText = userId + '님';
+
+            isLoggedIn=true;
+        }
+
+        /* 로그아웃 이벤트 함수 */
+        function logout() {
+            document.getElementById('userId').style.display='';
+            document.getElementById('userPassword').style.display='';
+            document.getElementById('loginButton').style.display='';
+            document.querySelector('.profile').style.display = 'none';
+            document.getElementById('userId').value = '';
+            document.getElementById('userPassword').value = '';
+
+            isLoggedIn=false;
+        }
+    </script>
+</body>
+
+</html>
