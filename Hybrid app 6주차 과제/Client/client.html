@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>클라이언트를 만들어보자</title>
+</head>
+<body>
+     <!-- 메시지 출력 파트 -->
+    <p id="message">서버의 메세지를 받아올 곳</p>
+
+    <!-- 버튼 클릭시 fetchMessage 함수 실행 -->
+    <button onclick="fetchMessage()">메세지 받아오기</button>
+
+    <script>
+        function fetchMessage(){
+            // 서버에서 'hi' 경로로 메시지 가져오기
+            fetch('http://localhost:8082/hi')
+            .then(response => response.text('')) // 응답을 텍스트로 변환
+            .then(data => {
+                // 가져온 메시지로 p 태그 내용 변경
+                document.getElementById('message').innerHTML = data; //server.js에 줄바꿈을 위한 innerHTML을 사용
+            })
+            .catch(error => {
+                // 오류 발생시 콘솔에 오류 메시지 출력
+                console.error('에러가발생하였습니다. 코드수정해주시길 바랍니다.',error);
+            });
+        }
+    </script>
+</body>
+</html>
