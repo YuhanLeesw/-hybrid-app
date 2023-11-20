@@ -1,0 +1,72 @@
+{
+  "number_of_people": 13,
+  "highscore_id": "engineering_sister",
+  "personal_data": [
+    {
+      "id": "elflee",
+      "password": "VRGA",
+      "personal_best": 1000,
+      "playcount": 50
+    },
+    {
+      "id": "engineering_sister",
+      "password": "VRGA",
+      "personal_best": 1200,
+      "playcount": 40
+    },
+    {
+      "id": "kyc0725",
+      "password": "CSE",
+      "personal_best": 200,
+      "playcount": 20
+    },
+    {
+      "id": "rwer",
+      "password": "wer",
+      "personal_best": 0,
+      "playcount": 0
+    },
+    {
+      "id": "qwe",
+      "password": "qwe",
+      "personal_best": 0,
+      "playcount": 0
+    },
+    {
+      "id": "qwe",
+      "password": "qwer",
+      "personal_best": 0,
+      "playcount": 0
+    },
+    {
+      "id": "qwer",
+      "password": "qwer",
+      "personal_best": 0,
+      "playcount": 0
+    },
+    {
+      "id": "123",
+      "password": "123",
+      "personal_best": 0,
+      "playcount": 0
+    },
+    {
+      "id": "rowlstjd5 ",
+      "password": "dltjddn",
+      "personal_best": 0,
+      "playcount": 0
+    },
+    {
+      "id": "gigigi",
+      "password": "gihihi",
+      "personal_best": 0,
+      "playcount": 0
+    },
+    {
+      "id": "asdasd",
+      "password": "asdadas",
+      "personal_best": 0,
+      "playcount": 0
+    }
+  ]
+}

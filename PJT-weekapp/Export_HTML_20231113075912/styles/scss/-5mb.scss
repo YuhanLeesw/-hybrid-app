@@ -1,0 +1,76 @@
+
+html {
+	font-size:62.5%;
+}
+* {
+	margin: 0;
+	padding: 0;
+}
+ul, li {
+	list-style: none;
+}
+input {
+	border: none;
+}
+body {
+  width: 42.8rem;
+}.item--CG1 {
+  height: 92.6rem;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  background-color: #ffffff;
+  border-radius: 4rem;
+  width: 100%;
+
+  .image-1-X3P {
+    width: 42.8rem;
+    height: 72.3rem;
+    position: absolute;
+    left: 0;
+    top: 0;
+    object-fit: cover;
+    vertical-align: top;
+  }
+  .item--TSq {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    font-size: 5rem;
+    width: 9.1rem;
+    left: 16.9rem;
+    top: 64.05rem;
+    align-items: baseline;
+    font-weight: 400;
+    line-height: 1.4;
+    color: #000000;
+    white-space: nowrap;
+    height: 7rem;
+    font-family: Inter, 'Source Sans Pro';
+
+    .item--TSq-sub-0 {
+      font-size: 5rem;
+      font-weight: 800;
+      line-height: 1.4;
+      color: #000000;
+      font-family: Inter, 'Source Sans Pro';
+    }
+    .item--TSq-sub-1 {
+      line-height: 1.4;
+      color: #ffb804;
+      font-family: Inter, 'Source Sans Pro';
+      font-size: 5rem;
+      font-weight: 800;
+    }
+  }
+  .animationlmymsm5mmedium-1-hkV {
+    top: 14rem;
+    object-fit: cover;
+    vertical-align: top;
+    border-radius: 3rem;
+    width: 24.4rem;
+    height: 44.3rem;
+    position: absolute;
+    left: 9.2rem;
+  }
+}

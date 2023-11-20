@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <title>스플래시 화면</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter%3A400%2C800"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro%3A400%2C800"/>
+  <link rel="stylesheet" href="./styles/splash screen.css"/>
+</head>
+<body>
+<div class="itemMain">
+  <img class="image-1" src="./assets/image-1-fBP.png"/>
+  <div class="itemTool">
+    <span class="item-sub-0">걷</span>
+    <span class="item-sub-1">자랑</span>
+  </div>
+  <img class="animation" src="./assets/week.gif"/>
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded', (event) => {
+    setTimeout(() => {
+      window.location.href = 'welcome screen.html'; // 웰컴 스크린 파일 경로로 수정하세요
+    }, 3000);
+  });
+</script>
+</body>
+</html>
